@@ -1,0 +1,6 @@
+
+"q" - query text
+"gl" - "ru" Country
+"hl" - "ru" Locale
+"num" - num of results on the page. Default value is 10. Possible values are 10 and 100
+"page" - num of page. Default is 1
