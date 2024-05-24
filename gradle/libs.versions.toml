@@ -16,6 +16,9 @@ navigation = "2.7.7"
 retrofitVersion = "2.11.0"
 viewpager = "1.1.0"
 browser = "1.8.0"
+glideVersion = "4.15.1"
+kspVersion = "1.9.0-1.0.13"
+roomVersion = "2.6.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -35,8 +38,12 @@ retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = 
 retrofit-converter = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofitVersion" }
 viewpager2 = { group = "androidx.viewpager2", name = "viewpager2", version.ref = "viewpager" }
 androidx-browser = { group = "androidx.browser", name = "browser", version.ref = "browser" }
+glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glideVersion" }
+room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "roomVersion" }
+room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "roomVersion" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "kspVersion" }
 
