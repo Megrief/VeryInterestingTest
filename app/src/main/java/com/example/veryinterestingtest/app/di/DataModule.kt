@@ -8,7 +8,7 @@ import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-private const val ACCESS_TOKEN = "518adabb09d791c234f39ad9e857e4097463bab0"
+private const val ACCESS_TOKEN = "becd76ebe912ab28d2bb64715ce960d11fcc1a87"
 private const val BASE_URL = "https://google.serper.dev"
 val dataModule = module {
 

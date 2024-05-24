@@ -25,7 +25,7 @@ class ImageFragment : BaseFragment<FragmentImageBinding, ImageViewModel>(Fragmen
                 viewModel.screenState.collect { state ->
                     when (state) {
                         is ImageScreenState.Empty -> { }
-                        is ImageScreenState.Data -> {}
+                        is ImageScreenState.Results -> {}
                         is ImageScreenState.Error -> {
                             Toast.makeText(requireContext(), state.message, Toast.LENGTH_SHORT).show()
                         }
@@ -36,7 +36,7 @@ class ImageFragment : BaseFragment<FragmentImageBinding, ImageViewModel>(Fragmen
 
         with(binding) {
             loadImage.setOnClickListener {
-                viewModel.loadImage(image)
+                viewModel.loadImage(imageView)
             }
 
             navigateBack.setOnClickListener {

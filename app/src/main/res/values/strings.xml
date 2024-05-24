@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">VeryInterestingTest</string>
+    <string name="open_in_web">Open in web</string>
+    <string name="downloaded_image">Downloaded image</string>
+    <string name="error">Something went wrong</string>
 </resources>

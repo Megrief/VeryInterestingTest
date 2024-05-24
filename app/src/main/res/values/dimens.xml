@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="card_radius">24dp</dimen>
+    <dimen name="margin_average">@dimen/card_radius</dimen>
+    <dimen name="margin_medium">16dp</dimen>
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="icon_padding">12dp</dimen>
+    <dimen name="text_vertical_padding">6dp</dimen>
+    <dimen name="text_radius">@dimen/margin_medium</dimen>
+
+</resources>
