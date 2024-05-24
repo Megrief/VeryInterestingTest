@@ -12,10 +12,10 @@ class SearchRepository(private val networkClient: NetworkClient) : SearchUseCase
     override suspend fun search(query: SearchQuery): Result<List<Image>> =
         networkClient.search(query).fold(
             onSuccess = {
-                return Result.success(it.images.map(ImageDto::toImage))
+                Result.success(it.images.map(ImageDto::toImage))
             },
             onFailure = {
-                return Result.failure(it)
+                Result.failure(it)
             }
         )
 }

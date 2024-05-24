@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -15,6 +16,10 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    viewBinding {
+        enable = true
     }
 
     buildTypes {
@@ -35,6 +40,13 @@ android {
     }
 }
 
+configurations {
+    create("cleanedAnnotations")
+    implementation {
+        exclude(group = "org.jetbrains", module = "annotations")
+    }
+}
+
 dependencies {
 
     implementation(libs.androidx.core.ktx)
@@ -47,7 +59,6 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     implementation(libs.koin)
-//    implementation(libs.custom.tabs)
     implementation(libs.kotlinx.coroutines)
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
@@ -55,4 +66,7 @@ dependencies {
     implementation(libs.viewpager2)
     implementation(libs.retrofit)
     implementation(libs.retrofit.converter)
+    implementation(libs.glide)
+    implementation(libs.room.runtime)
+    implementation(libs.room.compiler)
 }
