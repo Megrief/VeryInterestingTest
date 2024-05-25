@@ -1,4 +1,4 @@
-package com.example.veryinterestingtest.util
+package com.example.veryinterestingtest.data.util
 
 import com.example.veryinterestingtest.core.entity.Image
 import com.example.veryinterestingtest.data.network.dto.ImageDto

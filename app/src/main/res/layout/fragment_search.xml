@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_variant"
+    android:background="@color/background_base"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".presentation.search.SearchFragment">
 
@@ -17,7 +17,7 @@
         app:cursorColor="@color/text_dark"
         android:textColorHint="@color/text_hint"
         app:counterTextColor="@color/text_dark"
-        app:boxBackgroundColor="@color/background"
+        app:boxBackgroundColor="@color/background_elements"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">

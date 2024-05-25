@@ -16,11 +16,11 @@ import kotlinx.coroutines.launch
 
 class ImageViewHolder(private val binding: ImageCardBinding) : RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(image: Image) {
+    fun bind(image: Image?) {
         MainScope().launch {
             with(binding) {
-                setImage(image.imageUrl)
-                title.text = image.title
+                setImage(image?.imageUrl)
+                title.text = image?.title ?: root.context.getString(R.string.empty)
 
                 root.setOnClickListener {
                     navigationGroup.isGone = !navigationGroup.isGone
@@ -29,7 +29,7 @@ class ImageViewHolder(private val binding: ImageCardBinding) : RecyclerView.View
         }
     }
 
-    private fun setImage(imageUrl: String) {
+    private fun setImage(imageUrl: String?) {
         val cornerRadiusInPx = binding.root.resources.getDimensionPixelSize(R.dimen.margin_medium)
 
         Glide.with(binding.imageView)

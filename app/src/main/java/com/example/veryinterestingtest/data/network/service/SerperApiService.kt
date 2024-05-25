@@ -11,5 +11,5 @@ interface SerperApiService {
     suspend fun search(
         @Query("q") query: String,
         @Query("page") page: Int
-    ): Response<ApiResponse>
+    ): ApiResponse
 }
