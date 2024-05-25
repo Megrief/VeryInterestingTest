@@ -33,27 +33,27 @@ class SearchViewModel(
 
     private val searchRequest: (String) -> Unit = debounce(SEARCH_DELAY, viewModelScope, true) { query ->
         if (query.isNotBlank()) {
-            _screenState.value = SearchScreenState.Loading
-            lastQuery = query
-            viewModelScope.launch(Dispatchers.IO) {
-                try {
-                    searchRepo.search(query = SearchQuery(query), page = 1)
-                        .cachedIn(viewModelScope)
-                        .firstOrNull()?.let {
-                            _screenState.value = SearchScreenState.Results(it)
-                        }
-                } catch (e: Exception) {
-                    _screenState.emit(SearchScreenState.Error(e.message?: "Something went wrong"))
+            if (!checkInternetConnection()) {
+                _screenState.value = SearchScreenState.Error("No internet connection")
+            } else {
+                _screenState.value = SearchScreenState.Loading
+                lastQuery = query
+                viewModelScope.launch(Dispatchers.IO) {
+                    try {
+                        searchRepo.search(query = SearchQuery(query), page = 1)
+                            .cachedIn(viewModelScope)
+                            .firstOrNull()?.let {
+                                _screenState.value = SearchScreenState.Results(it)
+                            }
+                    } catch (e: Exception) {
+                        _screenState.emit(SearchScreenState.Error(e.message?: "Something went wrong"))
+                    }
                 }
             }
         }
     }
 
     fun search(query: String) {
-        if (!checkInternetConnection()) {
-            _screenState.value = SearchScreenState.Error("No internet connection")
-            return
-        }
         searchRequest(query)
     }
 
