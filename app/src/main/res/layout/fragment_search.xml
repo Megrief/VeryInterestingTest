@@ -7,33 +7,39 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".presentation.search.SearchFragment">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/search_bar"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_medium"
-        app:boxStrokeColor="@color/elements"
-        app:boxStrokeWidth="2dp"
-        app:cursorColor="@color/text_dark"
-        android:textColorHint="@color/text_hint"
-        app:counterTextColor="@color/text_dark"
-        app:boxBackgroundColor="@color/background_elements"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.textfield.TextInputEditText
+    <LinearLayout
+        android:id="@+id/search_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/elements"
+        android:gravity="center"
+        android:padding="@dimen/margin_medium"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <EditText
             android:id="@+id/search_field"
-            android:textColor="@color/text_dark"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="@dimen/margin_small"
+            android:paddingVertical="@dimen/margin_small"
+            android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+            android:hint="Search"
+            android:textColorHint="@color/elements"
+            android:textColor="@color/text_dark"
+            android:drawablePadding="@dimen/margin_small"
+            android:drawableStart="@drawable/ic_search"
+            android:drawableTint="@color/elements"
+            android:background="@drawable/search_background" />
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/results"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_margin="@dimen/icon_padding"
+        android:layout_marginHorizontal="@dimen/icon_padding"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
