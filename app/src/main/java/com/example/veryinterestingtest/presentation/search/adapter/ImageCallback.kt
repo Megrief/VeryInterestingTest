@@ -3,20 +3,11 @@ package com.example.veryinterestingtest.presentation.search.adapter
 import androidx.recyclerview.widget.DiffUtil
 import com.example.veryinterestingtest.core.entity.Image
 
-class ImageCallback(
-    private val oldList: List<Image>,
-    private val newList: List<Image>
-) : DiffUtil.Callback() {
+class ImageCallback : DiffUtil.ItemCallback<Image>() {
+    override fun areItemsTheSame(oldItem: Image, newItem: Image): Boolean =
+        oldItem.position == newItem.position
 
-    override fun getOldListSize(): Int =
-        oldList.size
+    override fun areContentsTheSame(oldItem: Image, newItem: Image): Boolean =
+        oldItem == newItem
 
-    override fun getNewListSize(): Int =
-        newList.size
-
-    override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean =
-        oldList[oldItemPosition] === newList[newItemPosition]
-
-    override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean =
-        oldList[oldItemPosition] == newList[newItemPosition]
 }

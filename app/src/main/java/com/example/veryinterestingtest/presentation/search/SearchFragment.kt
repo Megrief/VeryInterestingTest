@@ -10,7 +10,9 @@ import com.example.veryinterestingtest.databinding.FragmentSearchBinding
 import com.example.veryinterestingtest.presentation.base.BaseFragment
 import com.example.veryinterestingtest.presentation.search.adapter.ImageAdapter
 import com.example.veryinterestingtest.presentation.search.state.SearchScreenState
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SearchFragment : BaseFragment<FragmentSearchBinding, SearchViewModel>(FragmentSearchBinding::inflate) {
@@ -28,7 +30,9 @@ class SearchFragment : BaseFragment<FragmentSearchBinding, SearchViewModel>(Frag
 
         binding.results.adapter = adapter
         lifecycleScope.launch {
-            viewModel.search()
+            withContext(Dispatchers.IO) {
+                viewModel.search("Дерево")
+            }
 
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.screenState.collect { state ->
@@ -38,7 +42,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding, SearchViewModel>(Frag
                         }
                         is SearchScreenState.Results -> {
                             show(results = true)
-                            (binding.results.adapter as ImageAdapter).setList(state.images)
+                            (binding.results.adapter as ImageAdapter).submitData(lifecycle, state.images)
                         }
                         is SearchScreenState.Error -> {
                             show(error = true)
