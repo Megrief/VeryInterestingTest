@@ -12,5 +12,6 @@
 - Retrofit2
 - OkHttp3
 - Paging3
+- MVVM
 - ChromeCustomTabs
 - Google Navigation Component
